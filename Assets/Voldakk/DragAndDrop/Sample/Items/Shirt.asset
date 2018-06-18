@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf529ba71eeca64bb969f110a29508d, type: 3}
+  m_Name: Shirt
+  m_EditorClassIdentifier: 
+  name: Shirt
+  icon: {fileID: 21300000, guid: a04963e116c55544fb3a9e690e0565bb, type: 3}
+  stackSize: 1
+  count: 1
+  inInventory: 0
+  inventoryBagIndex: 0
+  inventoryItemIndex: 0
