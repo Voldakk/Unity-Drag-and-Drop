@@ -4,10 +4,8 @@ using System.Collections.Generic;
 
 namespace Voldakk.DragAndDrop
 {
-    public class DragAndDropManager : MonoBehaviour
+    public class DragAndDropManager
     {
-        public static DragAndDropManager instance;
-
         [Tooltip("All the subscribed drag and drop containers")]
         public List<DragAndDropContainer> containers = new List<DragAndDropContainer>();
 
@@ -16,17 +14,20 @@ namespace Voldakk.DragAndDrop
         private int[] fromIndices;
         private DragAndDropPanel currentPanel;
 
-        // Singleton
-        private void Awake()
+        private static DragAndDropManager instance;
+        public static DragAndDropManager Instance
         {
-            if (instance == null)
+            get
             {
-                instance = this;
+                if (instance == null)
+                    instance = new DragAndDropManager();
+
+                return instance;
             }
-            else
+
+            set
             {
-                Debug.LogError("More than one DragAndDropManager in the scene!");
-                Destroy(this);
+                instance = value;
             }
         }
 

@@ -45,10 +45,10 @@ namespace Voldakk.DragAndDrop
         }
 
         /// <summary>
-        /// Return the object in the given indices
+        /// Gets the object at the given indices
         /// </summary>
-        /// <param name="indices">The indeces in which the object is stored</param>
-        /// <returns>The object in the given indices</returns>
+        /// <param name="indices">The indices where the object is stored</param>
+        /// <returns>The object at the given indices</returns>
         public override object GetObject(int[] indices, bool isFromContainer)
         {
             if (indices.Length == 1 && indices[0] >= 0 && indices[0] < items.Count)
@@ -58,14 +58,14 @@ namespace Voldakk.DragAndDrop
         }
 
         /// <summary>
-        /// Try to recieve an object form another container
+        /// Try to recieve an object from another container
         /// </summary>
         /// <param name="o">The object to recieve</param>
-        /// <param name="indices">The indeces in which the object should be stored</param>
+        /// <param name="indices">The indices where the object should be stored</param>
         /// <returns>Whether the container sucsessfully recieved the object</returns>
         public override bool RecieveObject(object o, int[] indices)
         {
-            // If it's not an item, or it's thw wrong number of indices
+            // If it's not an item, or it's the wrong number of indices
             if (!(o is Item) || indices.Length != 1)
                 return false;
 
@@ -108,9 +108,9 @@ namespace Voldakk.DragAndDrop
         }
 
         /// <summary>
-        /// Remove the object in the given indices
+        /// Remove the object at the given indices
         /// </summary>
-        /// <param name="indices">The indeces in which the object is stored</param>
+        /// <param name="indices">The indeces where the object is stored</param>
         public override void RemoveObject(int[] indices)
         {
             // Check the indices
@@ -126,7 +126,7 @@ namespace Voldakk.DragAndDrop
         /// When an object is clicked
         /// </summary>
         /// <param name="button">The mouse button that was pressed</param>
-        /// <param name="indices">The indeces in which the object is stored</param>
+        /// <param name="indices">The indices where the object is stored</param>
         public override void OnObjectMouseDown(PointerEventData.InputButton button, int[] indices)
         {
             if (indices.Length != 1)
@@ -136,6 +136,8 @@ namespace Voldakk.DragAndDrop
                 Debug.LogFormat("Left click on index {0}", indices[0]);
             else if (button == PointerEventData.InputButton.Right)
                 Debug.LogFormat("Right click on index {0}", indices[0]);
+            else if (button == PointerEventData.InputButton.Middle)
+                Debug.LogFormat("Middle click on index {0}", indices[0]);
         }
     }
 }

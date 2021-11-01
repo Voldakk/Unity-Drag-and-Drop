@@ -7,6 +7,10 @@ namespace Voldakk.DragAndDrop
         public Image icon;
         public Text count;
 
+        /// <summary>
+        /// Set the object
+        /// </summary>
+        /// <param name="o">The object</param>
         public override void SetObject(object o)
         {
             if (o == null || !(o is Item))

@@ -5,7 +5,7 @@ namespace Voldakk.DragAndDrop
 {
     public abstract class DragAndDropContainer : MonoBehaviour
     {
-        [Tooltip("The panel vissible when draging an object from this container")]
+        [Tooltip("The panel used when draging an object from this container")]
         public DragAndDropPanel dragPanel;
 
         protected int containerIndex;
@@ -13,7 +13,7 @@ namespace Voldakk.DragAndDrop
         void Start()
         {
             // Subscribe to the DragAndDropManager
-            DragAndDropManager.instance.Subscribe(this);
+            DragAndDropManager.Instance.Subscribe(this);
 
             // Hide the panel in case it's vissible
             if (dragPanel.gameObject.activeSelf)
@@ -36,23 +36,23 @@ namespace Voldakk.DragAndDrop
         protected virtual void Initialize() { }
 
         /// <summary>
-        /// Return the object in the given indices
+        /// Gets the object at the given indices
         /// </summary>
-        /// <param name="indices">The indeces in which the object is stored</param>
-        /// <returns>The object in the given indices</returns>
+        /// <param name="indices">The indices where the object is stored</param>
+        /// <returns>The object at the given indices</returns>
         public abstract object GetObject(int[] indices, bool isFromContainer);
 
         /// <summary>
-        /// Remove the object in the given indices
+        /// Remove the object at the given indices
         /// </summary>
-        /// <param name="indices">The indeces in which the object is stored</param>
+        /// <param name="indices">The indices where the object is stored</param>
         public abstract void RemoveObject(int[] indices);
 
         /// <summary>
-        /// Try to recieve an object form another container
+        /// Try to recieve an object from another container
         /// </summary>
         /// <param name="o">The object to recieve</param>
-        /// <param name="indices">The indeces in which the object should be stored</param>
+        /// <param name="indices">The indices where the object should be stored</param>
         /// <returns>Whether the container sucsessfully recieved the object</returns>
         public abstract bool RecieveObject(object o, int[] indices);
 
@@ -60,7 +60,7 @@ namespace Voldakk.DragAndDrop
         /// When an object is clicked
         /// </summary>
         /// <param name="button">The mouse button that was pressed</param>
-        /// <param name="indices">The indeces in which the object is stored</param>
+        /// <param name="indices">The indices where the object is stored</param>
         public abstract void OnObjectMouseDown(PointerEventData.InputButton button, int[] indices);
     }
 }
